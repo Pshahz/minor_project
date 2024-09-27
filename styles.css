@@ -1,0 +1,129 @@
+/* Overall body and app styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: orange;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; /* Prevent overflow */
+}
+
+#app {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    position: relative; /* Important for sidebar overlap */
+}
+
+/* App Bar styling */
+.app-bar {
+    background-color: black;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Prevent overflow */
+    z-index: 10;
+    box-sizing: border-box; /* Prevents overflow */
+}
+
+.app-bar button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: left; /* Align menu button to the left */
+}
+
+.app-title {
+    color: white;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background-color: black;
+    position: fixed;
+    top: 50px;
+    left: -250px; /* Ensure it's completely hidden initially */
+    width: 250px;
+    height: 100%;
+    z-index: 1000;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar button {
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sidebar button:hover {
+    background-color: #eeeeee;
+}
+
+/* Logo (PORTUP) styling */
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Login page styling */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px; /* Ensures padding at the bottom */
+}
+
+input, button {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box; /* Ensures no overflow */
+    border: 1px solid #00796b;
+    border-radius: 5px;
+}
+
+/* Button styling */
+button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+/* Thank You Page styling */
+.thank-you-message {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.thank-you-note {
+    font-size: 16px;
+    margin: 5px 0;
+}
