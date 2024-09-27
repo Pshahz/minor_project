@@ -53,41 +53,43 @@ document.addEventListener("DOMContentLoaded", function() {
     // Handle sign-out menu button click
     signOutMenuButton.addEventListener("click", function() {
         alert("Signed out successfully.");
-        document.getElementById("login-page").style.display = "block";
-        document.getElementById("home-page").style.display = "none";
+        
+        // Reset app state
+        document.getElementById("login-page").style.display = "block"; // Show login page
+        document.getElementById("home-page").style.display = "none"; // Hide home page
+        document.getElementById("booking-page").style.display = "none"; // Hide booking page
+        document.getElementById("tracker-page").style.display = "none"; // Hide tracker page
         document.getElementById("thank-you-page").style.display = "none"; // Hide thank you page
         sidebar.style.left = "-250px"; // Hide sidebar
-    });
 
-    // Handle back button to return to home page from booking page
-    backBtn.addEventListener("click", function() {
-        document.getElementById("home-page").style.display = "block";
-        document.getElementById("booking-page").style.display = "none";
+        // Reset input fields
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        
+        // Clear any stored user data
+        currentUsername = ""; // Clear current username
     });
 
     // Handle booking submission
     submitBookingBtn.addEventListener("click", function() {
-        const bookUsername = document.getElementById("book-username").value;
+        const bookingUsername = document.getElementById("book-username").value;
         const email = document.getElementById("email").value;
         const address = document.getElementById("address").value;
         const phone = document.getElementById("phone").value;
         const shippingAddress = document.getElementById("shipping-address").value;
 
-        // Check if all fields are filled
-        if (bookUsername && email && address && phone && shippingAddress) {
-            currentUsername = bookUsername; // Store current username
-            document.getElementById("booking-page").style.display = "none";
-            document.getElementById("thank-you-page").style.display = "block";
-            document.getElementById("thank-you-username").textContent = currentUsername; // Display the username in the thank you message
+        if (bookingUsername && email && address && phone && shippingAddress) {
+            document.getElementById("thank-you-username").textContent = bookingUsername;
+            document.getElementById("booking-page").style.display = "none"; // Hide booking page
+            document.getElementById("thank-you-page").style.display = "block"; // Show thank you page
         } else {
-            alert("Please fill all fields before submitting!");
+            alert("Please fill all fields.");
         }
     });
 
-    // Handle back button to return to home page from thank you page
-    document.getElementById("back-to-home").addEventListener("click", function() {
-        document.getElementById("home-page").style.display = "block";
-        document.getElementById("thank-you-page").style.display = "none";
-        sidebar.style.left = "-250px"; // Hide sidebar if open
+    // Back button to return to home from booking page
+    backBtn.addEventListener("click", function() {
+        document.getElementById("booking-page").style.display = "none"; // Hide booking page
+        document.getElementById("home-page").style.display = "block"; // Show home page
     });
 });
